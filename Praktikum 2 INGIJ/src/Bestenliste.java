@@ -5,6 +5,8 @@ import javax.swing.JPanel;
 /**
  * 
  * @author daniel.bierbrauer
+ * 
+ * Die Klasse Bestenliste erstellt aus den Ergebnissen der letzten Runden eine Bestenliste
  *
  */
 public interface Bestenliste // extends JPanel
