@@ -1,7 +1,7 @@
 /**
  * 
  * @author jules.kornas
- *
+ * Die Klasse Spielkonsole steuert die Ein- und Ausgabe im Frontend/der Konsole
  */
 public interface Spielkonsole {
 	/**
