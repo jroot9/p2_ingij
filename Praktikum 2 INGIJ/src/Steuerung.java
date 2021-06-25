@@ -1,7 +1,7 @@
 /**
  * 
  * @author jules.kornas
- *
+ * Die Klasse Steuerung steuert die Spielabfolge
  */
 public interface Steuerung {
 	/**
