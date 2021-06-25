@@ -26,7 +26,7 @@ public interface Bestenliste // extends JPanel
 	/**
 	 * Erstellt ein neues Ergebnis mit folgenlänge und spielzeit des letzten Spiels.
 	 * 
-	 * @param folgenlaenge Länge der Richtig geratenen Ziffern
+	 * @param folgenlaenge 
 	 * @param spielzeit
 	 */
 	public void neues_Ergebnis(int folgenlaenge, int spielzeit);
