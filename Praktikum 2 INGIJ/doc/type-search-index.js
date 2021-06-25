@@ -1,1 +1,1 @@
-typeSearchIndex = [{"l":"All Classes","u":"allclasses-index.html"},{"p":"<Unnamed>","l":"Bestenliste"}];updateSearchResults();
+typeSearchIndex = [{"l":"All Classes","u":"allclasses-index.html"},{"p":"<Unnamed>","l":"Bestenliste"},{"p":"<Unnamed>","l":"BestenlisteZeile"},{"p":"<Unnamed>","l":"Datenspeicher"},{"p":"<Unnamed>","l":"Ergebnis"},{"p":"<Unnamed>","l":"Ergebnisliste"},{"p":"<Unnamed>","l":"Spielkonsole"},{"p":"<Unnamed>","l":"Steuerung"},{"p":"<Unnamed>","l":"Ziffer"},{"p":"<Unnamed>","l":"Zustand"}];updateSearchResults();
