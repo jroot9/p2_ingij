@@ -1,7 +1,7 @@
 /**
  * 
  * @author jules.kornas
- *
+ * Die Klasse Zustand stellt die verschiedenen Zustaende da
  */
 public interface Zustand {
 	/**
