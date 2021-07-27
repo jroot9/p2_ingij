@@ -16,7 +16,8 @@ public interface Ergebnis extends Comparable{
 	 * @param e
 	 * @return compareWertAlsInt
 	 */
-	public int CompareTo(Ergebnis e);
+	@Override
+	public int compareTo(Ergebnis e);
 	/**
 	 * Gibt den Namen als String des Ergebnis Objektes zurueck
 	 * @return name
