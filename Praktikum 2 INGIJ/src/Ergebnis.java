@@ -12,14 +12,14 @@ public interface Ergebnis implements Comparable {
 	 * 
 	 * public Ergebnis(String name, int spielzeitInSekunden, int reihenlaenge); 
 	/**
-	 * Vergleiche das aktuelle Ergebnis mit einem übergebenen Ergebnis Objekt e, dann wird ein Integer mit dem Ergebnis zurückgegeben (<0 kleiner, >0 groesser, 0 gleich)
+	 * Vergleiche das aktuelle Ergebnis Objekt mit einem übergebenen Ergebnis e, dann wird ein Integer zurückgegeben (<0 kleiner als, >0 groesser als, 0 gleich als)
 	 * @param e
 	 * @return compareWertAlsInt
 	 */
 	@Override
 	public int compareTo(Ergebnis e);
 	/**
-	 * Gibt den Namen als String des Ergebnis Objektes zurueck
+	 * Gibt den Namen als String dieses Ergebnis Objekt zurueck
 	 * @return name
 	 */
 	public String getName();
