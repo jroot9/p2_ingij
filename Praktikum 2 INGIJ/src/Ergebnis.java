@@ -3,7 +3,7 @@
  * @author jan.reuter
  *
  */
-public interface Ergebnis extends Comparable{
+public interface Ergebnis implements Comparable {
 	/*
 	 * Konstruktor
 	 * @param String name
