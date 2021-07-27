@@ -12,21 +12,21 @@ import javax.swing.JPanel;
 public interface Bestenliste // extends JPanel
 {
 	/**
-	 * Bestätigt per Mausklick die Eingabe des Spielernames .
+	 * Teilt der Steuerung den Beginn des Name_eingegeben Ereignisses der Steuerung mit
 	 * 
-	 * @param mouseListener Übergabe des jeweiligen Maus-Events
+	 * @param mouseListener Ãœbergabe des jeweiligen Maus-Events
 	 */
 	public void Name_eingegeben(MouseListener mouseListener);
 	
 	/**
-	 * Der Start eines neuen Spiels wird per Mausklick eingeleitet.
+	 * Kommuniziert den Beginn eines neues_Spiel Ergeignisses an die Steuerung
 	 * 
-	 * @param mouseListener Übergabe des jeweiligen Maus-Events
+	 * @param mouseListener Ãœbergabe des jeweiligen Maus-Events
 	 */
 	public void neues_Spiel(MouseListener mouseListener);
 	
 	/**
-	 * Erstellt ein neues Ergebnis mit folgenlänge und spielzeit des letzten Spiels.
+	 * Erstellt ein neues Ergebnis mit folgenlÃ¤nge und spielzeit des letzten Spiels.
 	 * 
 	 * @param folgenlaenge 
 	 * @param spielzeit
@@ -34,7 +34,7 @@ public interface Bestenliste // extends JPanel
 	public void neues_Ergebnis(int folgenlaenge, int spielzeit);
 	
 	/**
-	 * Öffnet die Texteingabe zum eintragen des Spielernames.
+	 * Ã–ffnet die Texteingabe zum eintragen des Spielernames.
 	 * 
 	 */
 	public void aktiviere_Namenseingabe();
@@ -46,9 +46,9 @@ public interface Bestenliste // extends JPanel
 	public void zeige_Liste_an();
 	
 	/**
-	 * Sorgt mit übergebenem boolean wert für die Sichtbarkeit der Liste.
+	 * Das Bestenliste Objekt verÃ¤ndert in der GUI seine Sichtbarkeit mittels der von JPanel geerbten Methode
 	 * 
-	 * @param wert True/False für eine sichtbare/unsichtbare Liste
+	 * @param wert True/False fÃ¼r eine sichtbare/unsichtbare Liste
 	 */
 	public void sichtbar(boolean wert);
 }
