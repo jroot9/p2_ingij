@@ -6,6 +6,11 @@
 public interface Zustand {
 	/**
 	 * startet das Spiel
+	 * 
+	 * 
+	 * 
+	 * 
+	 * 
 	 */
 	public void Spiel_gestartet();
 	/**
