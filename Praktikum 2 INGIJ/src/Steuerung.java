@@ -26,5 +26,5 @@ public interface Steuerung {
 	 */
 	public void Name_eingegeben();
 
-}
+}//////tesssstststtststststt
 
