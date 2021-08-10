@@ -1,3 +1,4 @@
+package de.janreuteringimp2;
 /**
  * 
  * @author jules.kornas
@@ -21,13 +22,13 @@ public interface Spielkonsole {
 	 * zeigt die eingegebene Ziffer an
 	 * @param ziffer
 	 */
-	public void Ziffer_ausgewaehlt(Ziffer ziffer);
+	public void Ziffer_ausgewaehlt(int s);
 	/**
 	 * überprüft, ob die eingegebene Ziffer mit der der Ziffernfolge übereinstimmt
 	 * @param ziffer
 	 * @return boolean
 	 */
-	public boolean ausgewaehlte_Ziffer_korrekt(Ziffer ziffer);
+	public boolean ausgewaehlte_Ziffer_korrekt(int s);
 	/**
 	 * überprüft, ob alle eingegebenen Ziffern korrekt sind
 	 * @return boolean

@@ -1,3 +1,4 @@
+package de.janreuteringimp2;
 /**
  * 
  * @author daniel.bierbrauer

@@ -1,3 +1,4 @@
+package de.janreuteringimp2;
 /**
  * Klasse welche die Speicherung der aus Ergebnisliste übergebenenspieldaten
  * bereitstellt.

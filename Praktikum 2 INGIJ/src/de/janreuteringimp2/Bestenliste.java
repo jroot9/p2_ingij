@@ -1,3 +1,4 @@
+package de.janreuteringimp2;
 import java.awt.event.MouseListener;
 
 import javax.swing.JPanel;

@@ -1,3 +1,4 @@
+package de.janreuteringimp2;
 /**
  * 
  * @author jules.kornas
@@ -16,7 +17,7 @@ public interface Zustand {
 	 * zeigt die aktuell ausgewählte Ziffer an
 	 * @param ziffer
 	 */
-	public void Ziffer_ausgewaehlt(Ziffer ziffer);
+	public void Ziffer_ausgewaehlt(int s);
 	/**
 	 * startet ein neues Spiel
 	 */

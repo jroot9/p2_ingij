@@ -1,3 +1,4 @@
+package de.janreuteringimp2;
 /**
  * Class to save a unknown amount of Ergebnis objects
  * @author jan.reuter
