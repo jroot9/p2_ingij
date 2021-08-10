@@ -22,7 +22,7 @@ public interface Steuerung {
 	 */
 	public void neues_Spiel();
 	/**
-	 * ermöglicht die Nameneingabe
+	 * ermoeglicht die Nameneingabe
 	 */
 	public void Name_eingegeben();
 
