@@ -6,15 +6,21 @@ package de.janreuteringimp2;
  * @author jan.reuter
  *
  */
-public interface Datenspeicher {
+public class Datenspeicher {
+	private Kryptomethode krypto;
+	private Komprimierung konp;
 	/**
 	 * Methode welche eine existierende Liste von Ergebnissen laed
 	 * @return ergebnisliste
 	 */
-	public Ergebnisliste lade();
+	public Ergebnisliste lade() {
+		return null;
+	}
 	/**
 	 * Methode welche eine uebergebene Ergebnisliste in abspeichert
 	 * @param ergebnisliste
 	 */
-	public void speichere(Ergebnisliste ergebnisliste);
+	public void speichere(Ergebnisliste ergebnisliste) {
+		
+	}
 }
