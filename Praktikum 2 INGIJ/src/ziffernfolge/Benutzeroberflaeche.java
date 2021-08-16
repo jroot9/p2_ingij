@@ -33,6 +33,7 @@ public class Benutzeroberflaeche extends JFrame //implements Bestenliste
     EventQueue.invokeLater(new Runnable()
     {
       public void run()
+      //
       {
         try
         {
