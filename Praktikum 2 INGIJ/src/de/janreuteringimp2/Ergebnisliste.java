@@ -10,7 +10,7 @@ import de.janreuteringimp2.Liste.Iterator;
  *
  */
 public class Ergebnisliste implements Sortierung {
-	private Liste ergebnisliste;
+	private VerketteteListe ergebnisliste;
 	private Datenspeicher datenspeicher;
 	private Iterator iterator;
 	/**
