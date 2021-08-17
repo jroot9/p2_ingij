@@ -10,15 +10,18 @@ import de.janreuteringimp2.Liste.Iterator;
  *
  */
 public class Ergebnisliste implements Sortierung {
-	private VerketteteListe ergebnisliste;
+	private VerketteteListe ergebnisliste = new VerketteteListe();
 	private Datenspeicher datenspeicher;
 	private Iterator iterator;
+	public Ergebnisliste() {
+		iterator = ergebnisliste.erzeuge_Iterator();
+	}
 	/**
 	 * Speichere ein neues Ergebnis in die Ergebnisliste
 	 * @param ergebnis
 	 */
 	public void speichere(Ergebnis ergebnis) {
-		ergebnisliste.setze_an_Ende(ergebnis);
+		ergebnisliste.fuege_ein_vor(ergebnis, iterator);
 	}
 	/**
 	 * Zeige auf das erste Element der Ergebnisliste
@@ -45,7 +48,7 @@ public class Ergebnisliste implements Sortierung {
 	 * @return ergebnis
 	 */
 	public Ergebnis aktuelles_Ergebnis() {
-		return (Ergebnis)iterator.element();
+			return (Ergebnis)iterator.element();
 	}
 	@Override
 	public void sortiere(Liste liste) {

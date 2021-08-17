@@ -21,10 +21,22 @@ public class Datenspeicher {
 	private Huffmann huffmannKomprimiermethode;
 	private int caesarSchluessel = 4;
 	private String dateiName = "/data/gameData.txt";
+	/**
+	 * Constructor mit Angabe vom DateiNamen, initialisiert die Verschlüsselung, sowie die Komprimierung
+	 * @param dateiName
+	 */
 	public Datenspeicher(String dateiName) {
 		this.dateiName = dateiName;
+		this.caesarVerschluesselung = new Caesar();
+		this.huffmannKomprimiermethode = new Huffmann();
 	}
-	public Datenspeicher() {}
+	/**
+	 * Leerer Constructor, initialisiert die Verschlüsselung, sowie die Komprimierung
+	 */
+	public Datenspeicher() {
+		this.caesarVerschluesselung = new Caesar();
+		this.huffmannKomprimiermethode = new Huffmann();
+	}
 	/**
 	 * Methode welche eine existierende Liste von Ergebnissen laed
 	 * @return ergebnisliste
@@ -38,8 +50,7 @@ public class Datenspeicher {
 			String aktuelleZeile = zeilenAusDatei.get(i);
 			aktuelleZeile = huffmannKomprimiermethode.expandieren(aktuelleZeile);
 			Ergebnis ergebnisAusAktuellerZeile =  convertiereStringAusDateiZumErgebnis(aktuelleZeile, caesarSchluessel);
-			ergebnisliste.fuege_ein_nach(ergebnisAusAktuellerZeile, iterator);
-			iterator.weiter();
+			ergebnisliste.setze_an_Ende(ergebnisAusAktuellerZeile);
 		}
 		return ergebnisliste;
 	}
@@ -77,12 +88,13 @@ public class Datenspeicher {
 		for(int i = 0; i< inhaltZumSchreibenInDatei.size(); i++ ) {
 			dateiSchreiber.write(inhaltZumSchreibenInDatei.get(i));
 		}
+		dateiSchreiber.close();
 	}
 	private Ergebnis convertiereStringAusDateiZumErgebnis(String zeileAusDateiZumKonvertieren, int caesarSchluessel) {
 		String [] stringsAusDateiAufgeteilt = zeileAusDateiZumKonvertieren.split(",");
 		String nameEntschluesselt = stringsAusDateiAufgeteilt[0];
 		caesarVerschluesselung.Schluessel(caesarSchluessel);
-		caesarVerschluesselung.verschluesseln(nameEntschluesselt);
+		caesarVerschluesselung.entschluesseln(nameEntschluesselt);
 		nameEntschluesselt = caesarVerschluesselung.getUnverschluesselterText();
 		return new Ergebnis(nameEntschluesselt, Integer.parseInt(stringsAusDateiAufgeteilt[1]),Integer.parseInt(stringsAusDateiAufgeteilt[2]));
 	}
