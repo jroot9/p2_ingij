@@ -3,7 +3,7 @@
  * @author jan.reuter
  *
  */
-public interface Ergebnis implements Comparable {
+public interface Ergebnis {
 	/*
 	 * Konstruktor
 	 * @param String name
@@ -16,8 +16,7 @@ public interface Ergebnis implements Comparable {
 	 * @param e
 	 * @return compareWertAlsInt
 	 */
-	@Override
-	public int compareTo(Ergebnis e);
+	public int compareTo(Object e);
 	/**
 	 * Gibt den Namen als String dieses Ergebnis Objekt zurueck
 	 * @return name
