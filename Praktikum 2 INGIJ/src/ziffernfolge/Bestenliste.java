@@ -36,6 +36,7 @@ public class Bestenliste  extends JPanel
 	    this.setLayout(null);
 	    this.setVisible(false);
 	    
+	    
 	    /*for(int i=0;i<anzahlSpiele;i++)
 	    { 
 	    	bestenlisteZeile[i]=new BestenlisteZeile(this);
