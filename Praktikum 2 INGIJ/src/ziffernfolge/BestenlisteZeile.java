@@ -15,20 +15,19 @@ import javax.swing.border.EtchedBorder;
  *
  */
 @SuppressWarnings("serial")
-public class BestenlisteZeile extends JLabel 
+public class BestenlisteZeile extends JPanel 
 {
-	public static final int groesse=12;
+	JLabel jLabel = new JLabel();
+	public static final int groesse=18;
 	//private Bestenliste bestenliste;
 	
 	public BestenlisteZeile(Bestenliste bestenliste) {
-	    this.setFont(new Font("Arial", Font.PLAIN, 12));
+	    //this.setFont(new Font("Arial", Font.PLAIN, 12));
 	    this.setSize(170,groesse);
 	    this.setVisible(false);
 	    
-	    /*JLabel jLabel = new JLabel(Ergebnis);
-	    jLabel.setFont(new Font("Verdana",1,20));
-	    jLabel.setBounds(0,0,200,50);
-	    this.add(jLabel);*/
+	    jLabel.setFont(new Font("Arial", Font.PLAIN, 12));
+	    this.add(jLabel);
 	 
 		
 	}
@@ -39,7 +38,7 @@ public class BestenlisteZeile extends JLabel
 	 */
 	public void zeige_an(Ergebnis ergebnis) {
 		String ergebnisToString=" "+ergebnis.getName()+"    "+ergebnis.getReihenlaenge()+"er Reihe    "+ergebnis.getSpielzeitInSekunden()+"sec";
-		this.setText(ergebnisToString);
+		jLabel.setText(ergebnisToString);
 		this.setVisible(true);
 	}
 }

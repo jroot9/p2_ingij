@@ -1,6 +1,8 @@
 package ziffernfolge;
 
 import java.awt.Color;
+import java.awt.EventQueue;
+import java.awt.Font;
 import java.awt.SystemColor;
 import java.awt.event.MouseListener;
 import java.awt.event.MouseAdapter;
@@ -9,6 +11,9 @@ import java.awt.event.MouseEvent;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.border.LineBorder;
+
+
+
 /**
  * 
  * @author daniel.bierbrauer
@@ -23,19 +28,26 @@ public class Bestenliste  extends JPanel
 	Ergebnis ergebnis = new Ergebnis("Lena",4,490);
 	private int maxZeilen=10;
 	private int counterSpiele=0;
-	private static final int Zeilenabstand=5;
-	public int hoehe=Zeilenabstand*maxZeilen+BestenlisteZeile.groesse*maxZeilen+1;
+	private static final int zeilenabstand=2;
+	private static final int ueberschrift = 20;
+	public int hoehe=ueberschrift+zeilenabstand*maxZeilen+BestenlisteZeile.groesse*maxZeilen+1;
 	public static final int breite=170;
+	
+	//
+	private Spielkonsole spielkonsole =new Spielkonsole();
+	//private Steuerung steuerung =new Steuerung(spielkonsole);
+	//
+	
+	
 	
 	
 	private BestenlisteZeile[] bestenlisteZeile=new BestenlisteZeile[maxZeilen];
 	
 	public Bestenliste() {
-		this.setBorder(new LineBorder(new Color(0, 0, 0)));
+		//this.setBorder(new LineBorder(new Color(0, 0, 0)));
 	    this.setSize(breite, hoehe); 
 	    this.setLayout(null);
 	    this.setVisible(false);
-	    
 	    
 	    /*for(int i=0;i<anzahlSpiele;i++)
 	    { 
@@ -57,9 +69,9 @@ public class Bestenliste  extends JPanel
 		Benutzeroberflaeche.txtNameInput.setEditable(false);
 		Benutzeroberflaeche.txtNameInput.setVisible(false);
 		
-		//Spiel starten funktioniert noch nicht
-		//Steuerung zustand = null;
-		//zustand.spiel_gestartet();
+		//Spiel starten funktioniert nur nach klicken
+		Benutzeroberflaeche.frame.steuerung.spiel_gestartet();
+		
 		
 		//button Namen Bestätigen ausblenden + deaktivieren
 		Benutzeroberflaeche.btnNamenEingeben.setVisible(false);
@@ -72,14 +84,21 @@ public class Bestenliste  extends JPanel
 		counterSpiele++;
 		Benutzeroberflaeche.btnNeuesSpiel.setVisible(true);
 		Benutzeroberflaeche.btnNeuesSpiel.setEnabled(true);
+		
+		//Komprimierungstest
+		//String s=Komprimierung.komprimieren("aaaaaaabbbccccccc");
+		//System.out.println(s);
+		//s=Komprimierung.expandieren("a7b");
+		//System.out.println(s);
+		
 	}
 	
 	/**
 	 * Kommuniziert den Beginn eines neues_Spiel Ergeignisses an die Steuerung
 	 * 
-	 * @param e Übergabe des jeweiligen Maus-Events
+	 * @param mouseListener Übergabe des jeweiligen Maus-Events
 	 */
-	public void neues_Spiel(MouseEvent e){
+	public void neues_Spiel(MouseEvent mouseListener){
 		
 		this.setVisible(false);
 		Benutzeroberflaeche.btnNeuesSpiel.setVisible(false);
@@ -102,7 +121,7 @@ public class Bestenliste  extends JPanel
 	ergebnis.setSpielzeitInSekunden(spielzeit);
 	
 	bestenlisteZeile[counterSpiele]=new BestenlisteZeile(this);
-	int ypos=Zeilenabstand+counterSpiele*(Zeilenabstand+BestenlisteZeile.groesse);
+	int ypos=ueberschrift+zeilenabstand+counterSpiele*(zeilenabstand+BestenlisteZeile.groesse);
 	bestenlisteZeile[counterSpiele].setLocation(0,ypos);
 	this.add(bestenlisteZeile[counterSpiele]);
 	
