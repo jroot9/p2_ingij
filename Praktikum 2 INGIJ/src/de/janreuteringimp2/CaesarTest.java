@@ -7,18 +7,18 @@ import org.junit.Test;
 public class CaesarTest {
 	private Caesar caesarObjekt = new Caesar();
 	@Test public void verschluesselnTest() {
-		caesarObjekt.Schluessel(8);
-		caesarObjekt.verschluesseln("Test");
+		caesarObjekt.Schluessel("8");
+		caesarObjekt.verschluesseln(new StringBuffer().append("Test"));
 		assertEquals("Verschlüsselung funktioniert nicht",caesarObjekt.getVerschluesselterText(),"Bmab");
 	}
 	@Test public void entschluesselnTest() {
-		caesarObjekt.Schluessel(12);
-		caesarObjekt.entschluesseln("Tmxxa");
+		caesarObjekt.Schluessel("12");
+		caesarObjekt.entschluesseln(new StringBuffer().append("Tmxxa"));
 		assertEquals("Entschlüsselung funktioniert nicht", caesarObjekt.getUnverschluesselterText(),"Hallo");
 	}
 	@Test public void verschluesselnMitUmlautTest() {
-		caesarObjekt.Schluessel(25);
-		caesarObjekt.verschluesseln("üÄÖß");
+		caesarObjekt.Schluessel("25");
+		caesarObjekt.verschluesseln(new StringBuffer().append("üÄÖß"));
 		assertEquals("Umlaute werden nicht in das ASCII Format gebracht.",caesarObjekt.getVerschluesselterText(),"tdZdNdrr");
 	}
 }

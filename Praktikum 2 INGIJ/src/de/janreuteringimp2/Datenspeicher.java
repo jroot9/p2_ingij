@@ -62,10 +62,10 @@ public class Datenspeicher {
 		ArrayList<String> inhaltZumSchreibenInDatei = new ArrayList<String>();
 		Iterator iterator = (Iterator) ergebnisliste.erzeuge_Iterator();
 		iterator.anfang();
-		caesarVerschluesselung.Schluessel(caesarSchluessel);
+		caesarVerschluesselung.Schluessel(caesarSchluessel+"");
 		while(!iterator.nach_ende()) {
 			Ergebnis aktuellesErgebnis = (Ergebnis)iterator.element();
-			caesarVerschluesselung.verschluesseln(aktuellesErgebnis.getName());
+			caesarVerschluesselung.verschluesseln(new StringBuffer().append(aktuellesErgebnis.getName()));
 			String zeileZumSchreibenInDatei = caesarVerschluesselung.getVerschluesselterText()+","+aktuellesErgebnis.getReihenlaenge()+","+aktuellesErgebnis.getSpielzeitInSekunde();
 			zeileZumSchreibenInDatei = huffmannKomprimiermethode.komprimieren(zeileZumSchreibenInDatei);
 			inhaltZumSchreibenInDatei.add(zeileZumSchreibenInDatei);
@@ -93,8 +93,8 @@ public class Datenspeicher {
 	private Ergebnis convertiereStringAusDateiZumErgebnis(String zeileAusDateiZumKonvertieren, int caesarSchluessel) {
 		String [] stringsAusDateiAufgeteilt = zeileAusDateiZumKonvertieren.split(",");
 		String nameEntschluesselt = stringsAusDateiAufgeteilt[0];
-		caesarVerschluesselung.Schluessel(caesarSchluessel);
-		caesarVerschluesselung.entschluesseln(nameEntschluesselt);
+		caesarVerschluesselung.Schluessel(caesarSchluessel+"");
+		caesarVerschluesselung.entschluesseln(new StringBuffer().append(nameEntschluesselt));
 		nameEntschluesselt = caesarVerschluesselung.getUnverschluesselterText();
 		return new Ergebnis(nameEntschluesselt, Integer.parseInt(stringsAusDateiAufgeteilt[1]),Integer.parseInt(stringsAusDateiAufgeteilt[2]));
 	}
