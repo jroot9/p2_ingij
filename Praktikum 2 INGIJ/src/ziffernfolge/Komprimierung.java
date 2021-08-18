@@ -9,7 +9,7 @@ public class Komprimierung {
     ein Null-Zeiger uebergeben wird, wird nicht 
     komprimiert.
     @param text der zu komprimierende Text.*/
-public static String komprimieren(String text) {
+public String komprimieren(String text) {
 	
 	int n = text.length();
 	int zaehler = 1;
@@ -29,7 +29,7 @@ ein Null-Zeiger uebergeben wird, wird nicht
 expandiert.
 @param text der zu expandierende Text.*/
 
-public static String expandieren(String text) {
+public String expandieren(String text) {
 	final StringBuilder sb = new StringBuilder();
 
     final char[] buchstabenkette = text.toCharArray();

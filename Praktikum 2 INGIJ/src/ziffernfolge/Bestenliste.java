@@ -86,10 +86,12 @@ public class Bestenliste  extends JPanel
 		Benutzeroberflaeche.btnNeuesSpiel.setEnabled(true);
 		
 		//Komprimierungstest
-		//String s=Komprimierung.komprimieren("aaaaaaabbbccccccc");
-		//System.out.println(s);
-		//s=Komprimierung.expandieren("a7b");
-		//System.out.println(s);
+		Komprimierung komprimierung =new Komprimierung();
+		System.out.println("Test der Komprimierung");
+		String s=komprimierung.komprimieren("aaaaaaabbbccccccc");
+		System.out.println(s);
+		s=komprimierung.expandieren("a7b");
+		System.out.println(s);
 		
 	}
 	
