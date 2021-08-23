@@ -4,24 +4,30 @@ public class Komprimierung {
 	// Konstruktor für Implementierungen:
 	  /** Ein Komprimierer und ein Dekomp
 	   * rimierer werden bereitgestellt. */ 
-	  //public <Komprimierung_Implementierung>();
+	public Komprimierung() {
+		
+	}
+	
 	/** Der Text wird komprimiert. Wenn fuer den Text 
     ein Null-Zeiger uebergeben wird, wird nicht 
     komprimiert.
     @param text der zu komprimierende Text.*/
 public String komprimieren(String text) {
 	
+	String ausgabe="";
+
 	int n = text.length();
-	int zaehler = 1;
-	int i=0;
-	
-    for (i = 0; i < n; i++) {
+    for (int i = 0; i < n; i++) {
+    	
+    	int zaehler = 1;
         while (i < n - 1 && text.charAt(i) == text.charAt(i + 1)) {
             zaehler++;
             i++;
         }
+        
+        ausgabe = ausgabe + Integer.toString(zaehler)+text.charAt(i);
     }
-    return text.charAt(i)+Integer.toString(zaehler);
+    return ausgabe;
 	
 }
 /** Der Text wird expandiert. Wenn fuer den Text 

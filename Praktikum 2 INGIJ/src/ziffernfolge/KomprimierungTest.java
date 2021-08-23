@@ -1,29 +1,43 @@
 package ziffernfolge;
 
-import static org.junit.jupiter.api.Assertions.*;
-
-import org.junit.Assert;
+import static org.junit.Assert.assertEquals;
 import org.junit.jupiter.api.Test;
 
 class KomprimierungTest {
 	Komprimierung komprimierung =new Komprimierung();
+	String soll;
+	String ist;
 
 	@Test
 	public void Komprimierung_komprimieren() {
-		Assert.assertEquals("1a2b",komprimierung.komprimieren("abb"));
-	    
-		fail("Not yet implemented");
+		soll="5a2b";
+		ist = komprimierung.komprimieren("aaaaabb");
+		assertEquals("Fehler",soll,ist);
+		
+		soll="1a2b";
+		ist = komprimierung.komprimieren("abb");	
+		assertEquals("Fehler",soll,ist);
+		
+		soll="8w2e";
+		ist = komprimierung.komprimieren("wwwwwwwwee");
+		assertEquals("Fehler",soll,ist);
 	}
 
 
 	@Test
 	public void Komprimierung_expandieren() {
-		Assert.assertEquals("abb", komprimierung.expandieren("1a2b"));
-	    Assert.assertEquals("aaaaaaaaaa", komprimierung.expandieren("10a"));
-	    Assert.assertEquals("baaaaaaaaaa", komprimierung.expandieren("b10a"));
-	    Assert.assertEquals("abab", komprimierung.expandieren("2ab"));
-	    Assert.assertEquals("Heeeeeeeeeeeellooooo", komprimierung.expandieren("H9e3e2l5o"));
-		fail("Not yet implemented");
+		soll="HHHHHaaaaaallllllloooooooo";
+		ist=komprimierung.expandieren("5H6a7l8o");
+		assertEquals("Fehler",soll,ist);
+		
+		soll="wwwtttttt";
+		ist=komprimierung.expandieren("3w6t");
+		assertEquals("Fehler",soll,ist);
+		
+		soll="uuuppppp";
+		ist=komprimierung.expandieren("3u5p");
+		assertEquals("Fehler",soll,ist);
+		
 	}
 
 }
