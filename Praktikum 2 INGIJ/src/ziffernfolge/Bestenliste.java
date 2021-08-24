@@ -8,7 +8,6 @@ import java.awt.event.MouseListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
-import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.border.LineBorder;
 
@@ -33,12 +32,6 @@ public class Bestenliste  extends JPanel
 	public int hoehe=ueberschrift+zeilenabstand*maxZeilen+BestenlisteZeile.groesse*maxZeilen+1;
 	public static final int breite=170;
 	
-	//
-	private Spielkonsole spielkonsole =new Spielkonsole();
-	//private Steuerung steuerung =new Steuerung(spielkonsole);
-	//
-	
-	
 	
 	
 	private BestenlisteZeile[] bestenlisteZeile=new BestenlisteZeile[maxZeilen];
@@ -49,13 +42,23 @@ public class Bestenliste  extends JPanel
 	    this.setLayout(null);
 	    this.setVisible(false);
 	    
-	    /*for(int i=0;i<anzahlSpiele;i++)
-	    { 
-	    	bestenlisteZeile[i]=new BestenlisteZeile(this);
-	        int ypos=Zeilenabstand+i*(Zeilenabstand+BestenlisteZeile.groesse);
-	        bestenlisteZeile[i].setLocation(0,ypos);
-	        this.add(bestenlisteZeile[i]);
-	    }*/
+	    Benutzeroberflaeche.btnNeuesSpiel.addMouseListener(new MouseAdapter() {
+	    	@Override
+	    	public void mouseClicked(MouseEvent e) {
+	    		neues_Spiel(e);
+	    	}
+	    });
+	    
+	    Benutzeroberflaeche.btnNamenEingeben.addMouseListener(new MouseAdapter() {
+	    	@Override
+	    	public void mouseClicked(MouseEvent e) {
+	    		Name_eingegeben(e);
+	    		
+	    		//zu Lösen: Spiel starten funktioniert nur nach klicken ins Ziffernfeld
+	    		Benutzeroberflaeche.frame.steuerung.spiel_gestartet();
+	    	}
+	    });
+ 
 	}
 	
 	/**
@@ -69,29 +72,28 @@ public class Bestenliste  extends JPanel
 		Benutzeroberflaeche.txtNameInput.setEditable(false);
 		Benutzeroberflaeche.txtNameInput.setVisible(false);
 		
-		//Spiel starten funktioniert nur nach klicken
-		Benutzeroberflaeche.frame.steuerung.spiel_gestartet();
-		
 		
 		//button Namen Bestätigen ausblenden + deaktivieren
 		Benutzeroberflaeche.btnNamenEingeben.setVisible(false);
 		Benutzeroberflaeche.btnNamenEingeben.setEnabled(false);
 		
-		//Zum Testen
+		//Zum Testen der Bestenliste
 		neues_Ergebnis(15, 26);
-		this.setVisible(true);
-		bestenlisteZeile[counterSpiele].zeige_an(ergebnis);
+		zeige_Liste_an();
+		
+		
+		
 		counterSpiele++;
 		Benutzeroberflaeche.btnNeuesSpiel.setVisible(true);
 		Benutzeroberflaeche.btnNeuesSpiel.setEnabled(true);
 		
 		//Komprimierungstest
-		System.out.println("Test der Komprimierung");
-		Komprimierung komprimierung =new Komprimierung();
-		String s = komprimierung.komprimieren("aaaaabb");
-		System.out.println(s);
-	    s=komprimierung.expandieren("a7b");
-		System.out.println(s);
+//		System.out.println("Test der Komprimierung");
+//		Komprimierung komprimierung =new Komprimierung();
+//		String s = komprimierung.komprimieren("aaaaabb");
+//		System.out.println(s);
+//	    s=komprimierung.expandieren("a7b");
+//		System.out.println(s);
 		
 	}
 	
@@ -139,7 +141,6 @@ public class Bestenliste  extends JPanel
 		Benutzeroberflaeche.btnNamenEingeben.setEnabled(true);
 		Benutzeroberflaeche.txtNameInput.setEditable(true);
 		Benutzeroberflaeche.txtNameInput.setVisible(true);
-		//JOptionPane.showMessageDialog(null, "Bitte Namen angeben und bestätigen!");
 	}
 	
 	/**
@@ -147,7 +148,9 @@ public class Bestenliste  extends JPanel
 	 * 
 	 */
 	public void zeige_Liste_an(){
+		bestenlisteZeile[counterSpiele].zeige_an(ergebnis);
 		this.setVisible(true);
+		
 	}
 	
 	/**
@@ -158,4 +161,7 @@ public class Bestenliste  extends JPanel
 	public void sichtbar(boolean wert){
 		this.setVisible(wert);
 	}
+	
+	
 }
+

@@ -75,21 +75,24 @@ public class Benutzeroberflaeche extends JFrame
     bestenliste.add(lblUeberschrift);
     
     
-    btnNeuesSpiel.addMouseListener(new MouseAdapter() {
-    	@Override
-    	public void mouseClicked(MouseEvent e) {
-    		bestenliste.neues_Spiel(e);
-    	}
-    });
+//    btnNeuesSpiel.addMouseListener(new MouseAdapter() {
+//    	@Override
+//    	public void mouseClicked(MouseEvent e) {
+//    		bestenliste.neues_Spiel(e);
+//    	}
+//    });
 
     btnNeuesSpiel.setBounds(10, 282, 116, 23);
     contentPane.add(btnNeuesSpiel);
-    btnNamenEingeben.addMouseListener(new MouseAdapter() {
-    	@Override
-    	public void mouseClicked(MouseEvent e) {
-    		bestenliste.Name_eingegeben(e);
-    	}
-    });
+    
+//    btnNamenEingeben.addMouseListener(new MouseAdapter() {
+//    	@Override
+//    	public void mouseClicked(MouseEvent e) {
+//    		bestenliste.Name_eingegeben(e);
+//    		frame.steuerung.spiel_gestartet();
+//    	}
+//    });
+    
     btnNamenEingeben.setFont(new Font("Tahoma", Font.PLAIN, 9));
     btnNamenEingeben.setBounds(232, 282, 118, 23);
     btnNamenEingeben.setVisible(false);
