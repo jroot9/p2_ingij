@@ -26,7 +26,7 @@ public class Benutzeroberflaeche extends JFrame
   public final static JButton btnNamenEingeben = new JButton("Namen bestaetigen");
   public final static JButton btnNeuesSpiel = new JButton("Neues Spiel");
   public static JTextField txtNameInput;
-  public static final Benutzeroberflaeche frame = new Benutzeroberflaeche();
+  //public static final Benutzeroberflaeche frame = new Benutzeroberflaeche();
   /**
    * Launch the application.
    */
@@ -38,7 +38,7 @@ public class Benutzeroberflaeche extends JFrame
       {
         try
         {
-         // Benutzeroberflaeche frame = new Benutzeroberflaeche();
+         Benutzeroberflaeche frame = new Benutzeroberflaeche();
           frame.setVisible(true);
           frame.steuerung.spiel_gestartet();
         } catch (Exception e)

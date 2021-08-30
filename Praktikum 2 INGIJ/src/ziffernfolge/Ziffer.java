@@ -28,6 +28,7 @@ public class Ziffer extends JLabel
       @param spielkonsole Spielkonsole zu der das Ziffernfeld gehoert.*/
   public Ziffer(Spielkonsole spielkonsole)
   { anzahl++;
+  if(anzahl>=9) anzahl=1;
     ziffer=anzahl;
     this.spielkonsole=spielkonsole;
     //Graphik-Eigenschaften setzen

@@ -27,7 +27,7 @@ public class Spielkonsole extends JPanel
   private Liste.Iterator iterator_ziffernfolge=ziffernfolge.erzeuge_Iterator(); // für das Navigieren in der Ziffernfolge
   private Steuerung steuerung;  // für die Spielsteuerung
   
-  /** Erzeugt eine neue Spielkonsole.
+ /** Erzeugt eine neue Spielkonsole.
       Die Abmessungen werden automatisch so eingestellt, dass
       die neun Ziffernfelder genug Platz haben. Die Spielkonsole erzeugt
       eine Steuerung, die erlaubt, das Spiel zu kontrollieren. 

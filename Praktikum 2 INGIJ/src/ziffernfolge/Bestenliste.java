@@ -31,6 +31,7 @@ public class Bestenliste  extends JPanel
 	private static final int ueberschrift = 20;
 	public int hoehe=ueberschrift+zeilenabstand*maxZeilen+BestenlisteZeile.groesse*maxZeilen+1;
 	public static final int breite=170;
+	public static final Benutzeroberflaeche frame = new Benutzeroberflaeche();
 	
 	
 	
@@ -55,7 +56,8 @@ public class Bestenliste  extends JPanel
 	    		Name_eingegeben(e);
 	    		
 	    		//zu Lösen: Spiel starten funktioniert nur nach klicken ins Ziffernfeld
-	    		Benutzeroberflaeche.frame.steuerung.spiel_gestartet();
+	    		
+	    		frame.steuerung.spiel_gestartet();
 	    	}
 	    });
  
