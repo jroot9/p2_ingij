@@ -95,6 +95,7 @@ public class Benutzeroberflaeche extends JFrame
     btnNamenEingeben.setFont(new Font("Tahoma", Font.PLAIN, 9));
     btnNamenEingeben.setBounds(232, 282, 118, 23);
     btnNamenEingeben.setVisible(false);
+    btnNeuesSpiel.setVisible(false);
     
     contentPane.add(btnNamenEingeben);
     

@@ -76,6 +76,7 @@ public class Steuerung
   // Zustand Memorieren_Ziffernfolge
   private class Memorieren_Ziffernfolge extends Zustand
   { 
+	  private Benutzeroberflaeche bof;
     public void ziffer_ausgewaehlt(Ziffer ziffer)
     { if(spielkonsole.ausgewaehlte_Ziffer_korrekt(ziffer)
          && !spielkonsole.alle_Ziffern_memoriert())
@@ -94,6 +95,8 @@ public class Steuerung
       { // Fehler
     	  ziffer.leuchte_rot_auf();
         naechster_Zustand(spiel_beendet);
+        bof.btnNeuesSpiel.setVisible(true);
+		bof.btnNeuesSpiel.setEnabled(true);
         return;
       }
     }

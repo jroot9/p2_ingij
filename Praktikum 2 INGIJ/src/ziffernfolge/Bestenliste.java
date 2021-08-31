@@ -68,8 +68,8 @@ public class Bestenliste  extends JPanel
 		
 		
 		counterSpiele++;
-		bof.btnNeuesSpiel.setVisible(true);
-		bof.btnNeuesSpiel.setEnabled(true);
+//		bof.btnNeuesSpiel.setVisible(true);
+//		bof.btnNeuesSpiel.setEnabled(true);
 		
 		//Komprimierungstest
 //		System.out.println("Test der Komprimierung");
