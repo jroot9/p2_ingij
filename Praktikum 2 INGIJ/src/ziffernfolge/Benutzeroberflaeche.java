@@ -22,11 +22,10 @@ public class Benutzeroberflaeche extends JFrame
   private Spielkonsole spielkonsole = new Spielkonsole();
   private Bestenliste bestenliste;
   public Steuerung steuerung = new Steuerung(spielkonsole);
-  private BestenlisteZeile b = new BestenlisteZeile(bestenliste);
   public final static JButton btnNamenEingeben = new JButton("Namen bestaetigen");
   public final static JButton btnNeuesSpiel = new JButton("Neues Spiel");
   public static JTextField txtNameInput;
-  //public static final Benutzeroberflaeche frame = new Benutzeroberflaeche();
+  
   /**
    * Launch the application.
    */

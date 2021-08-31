@@ -39,28 +39,9 @@ public class Bestenliste  extends JPanel
 	
 	public Bestenliste(Benutzeroberflaeche bof) {
 		this.bof = bof;
-		//this.setBorder(new LineBorder(new Color(0, 0, 0)));
 	    this.setSize(breite, hoehe); 
 	    this.setLayout(null);
 	    this.setVisible(false);
-	    
-	/*    Benutzeroberflaeche.btnNeuesSpiel.addMouseListener(new MouseAdapter() {
-	    	@Override
-	    	public void mouseClicked(MouseEvent e) {
-	    		neues_Spiel(e);
-	    	}
-	    });
-	    
-	    Benutzeroberflaeche.btnNamenEingeben.addMouseListener(new MouseAdapter() {
-	    	@Override
-	    	public void mouseClicked(MouseEvent e) {
-	    		Name_eingegeben(e);
-	    		
-	    		//zu Lösen: Spiel starten funktioniert nur nach klicken ins Ziffernfeld
-	    		
-	    		frame.steuerung.spiel_gestartet();
-	    	}
-	    });*/
  
 	}
 	
@@ -122,7 +103,7 @@ public class Bestenliste  extends JPanel
 	 */
 	public void neues_Ergebnis(int folgenlaenge, int spielzeit){
 		
-	//name, folgenlänge, Spielzeit abspeichern + anzahl Spiele erhöhen
+	//name, folgenlänge, Spielzeit abspeichern
 	ergebnis.setName(name);
 	ergebnis.setReihenlaenge(folgenlaenge);
 	ergebnis.setSpielzeitInSekunden(spielzeit);
