@@ -31,19 +31,20 @@ public class Bestenliste  extends JPanel
 	private static final int ueberschrift = 20;
 	public int hoehe=ueberschrift+zeilenabstand*maxZeilen+BestenlisteZeile.groesse*maxZeilen+1;
 	public static final int breite=170;
-	public static final Benutzeroberflaeche frame = new Benutzeroberflaeche();
+	private Benutzeroberflaeche bof;
 	
 	
 	
 	private BestenlisteZeile[] bestenlisteZeile=new BestenlisteZeile[maxZeilen];
 	
-	public Bestenliste() {
+	public Bestenliste(Benutzeroberflaeche bof) {
+		this.bof = bof;
 		//this.setBorder(new LineBorder(new Color(0, 0, 0)));
 	    this.setSize(breite, hoehe); 
 	    this.setLayout(null);
 	    this.setVisible(false);
 	    
-	    Benutzeroberflaeche.btnNeuesSpiel.addMouseListener(new MouseAdapter() {
+	/*    Benutzeroberflaeche.btnNeuesSpiel.addMouseListener(new MouseAdapter() {
 	    	@Override
 	    	public void mouseClicked(MouseEvent e) {
 	    		neues_Spiel(e);
@@ -59,7 +60,7 @@ public class Bestenliste  extends JPanel
 	    		
 	    		frame.steuerung.spiel_gestartet();
 	    	}
-	    });
+	    });*/
  
 	}
 	
@@ -69,15 +70,15 @@ public class Bestenliste  extends JPanel
 	 * @param mouseListener Übergabe des jeweiligen Maus-Events
 	 */
 	public void Name_eingegeben(MouseEvent e) {
-		name=Benutzeroberflaeche.txtNameInput.getText();
-		Benutzeroberflaeche.txtNameInput.setText("");
-		Benutzeroberflaeche.txtNameInput.setEditable(false);
-		Benutzeroberflaeche.txtNameInput.setVisible(false);
+		name=bof.txtNameInput.getText();
+		bof.txtNameInput.setText("");
+		bof.txtNameInput.setEditable(false);
+		bof.txtNameInput.setVisible(false);
 		
 		
 		//button Namen Bestätigen ausblenden + deaktivieren
-		Benutzeroberflaeche.btnNamenEingeben.setVisible(false);
-		Benutzeroberflaeche.btnNamenEingeben.setEnabled(false);
+		bof.btnNamenEingeben.setVisible(false);
+		bof.btnNamenEingeben.setEnabled(false);
 		
 		//Zum Testen der Bestenliste
 		neues_Ergebnis(15, 26);
@@ -86,8 +87,8 @@ public class Bestenliste  extends JPanel
 		
 		
 		counterSpiele++;
-		Benutzeroberflaeche.btnNeuesSpiel.setVisible(true);
-		Benutzeroberflaeche.btnNeuesSpiel.setEnabled(true);
+		bof.btnNeuesSpiel.setVisible(true);
+		bof.btnNeuesSpiel.setEnabled(true);
 		
 		//Komprimierungstest
 //		System.out.println("Test der Komprimierung");
@@ -107,8 +108,8 @@ public class Bestenliste  extends JPanel
 	public void neues_Spiel(MouseEvent mouseListener){
 		
 		this.setVisible(false);
-		Benutzeroberflaeche.btnNeuesSpiel.setVisible(false);
-		Benutzeroberflaeche.btnNeuesSpiel.setEnabled(false);
+		bof.btnNeuesSpiel.setVisible(false);
+		bof.btnNeuesSpiel.setEnabled(false);
 		this.aktiviere_Namenseingabe();	
 		
 	}
@@ -139,10 +140,10 @@ public class Bestenliste  extends JPanel
 	 */
 	public void aktiviere_Namenseingabe(){
 		
-		Benutzeroberflaeche.btnNamenEingeben.setVisible(true);
-		Benutzeroberflaeche.btnNamenEingeben.setEnabled(true);
-		Benutzeroberflaeche.txtNameInput.setEditable(true);
-		Benutzeroberflaeche.txtNameInput.setVisible(true);
+		bof.btnNamenEingeben.setVisible(true);
+		bof.btnNamenEingeben.setEnabled(true);
+		bof.txtNameInput.setEditable(true);
+		bof.txtNameInput.setVisible(true);
 	}
 	
 	/**

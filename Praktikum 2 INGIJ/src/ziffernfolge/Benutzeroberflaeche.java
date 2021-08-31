@@ -20,7 +20,7 @@ public class Benutzeroberflaeche extends JFrame
   private static final int abstand=10;
   private JPanel contentPane;
   private Spielkonsole spielkonsole = new Spielkonsole();
-  private Bestenliste bestenliste = new Bestenliste();
+  private Bestenliste bestenliste;
   public Steuerung steuerung = new Steuerung(spielkonsole);
   private BestenlisteZeile b = new BestenlisteZeile(bestenliste);
   public final static JButton btnNamenEingeben = new JButton("Namen bestaetigen");
@@ -62,7 +62,7 @@ public class Benutzeroberflaeche extends JFrame
     contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
     setContentPane(contentPane);
     contentPane.setLayout(null);
-
+    bestenliste = new Bestenliste(this);
     spielkonsole.melde_an(steuerung);
     spielkonsole.setLocation(abstand,abstand);
     contentPane.add(spielkonsole);
@@ -75,23 +75,23 @@ public class Benutzeroberflaeche extends JFrame
     bestenliste.add(lblUeberschrift);
     
     
-//    btnNeuesSpiel.addMouseListener(new MouseAdapter() {
-//    	@Override
-//    	public void mouseClicked(MouseEvent e) {
-//    		bestenliste.neues_Spiel(e);
-//    	}
-//    });
+    btnNeuesSpiel.addMouseListener(new MouseAdapter() {
+    	@Override
+    	public void mouseClicked(MouseEvent e) {
+    		bestenliste.neues_Spiel(e);
+    	}
+    });
 
     btnNeuesSpiel.setBounds(10, 282, 116, 23);
     contentPane.add(btnNeuesSpiel);
     
-//    btnNamenEingeben.addMouseListener(new MouseAdapter() {
-//    	@Override
-//    	public void mouseClicked(MouseEvent e) {
-//    		bestenliste.Name_eingegeben(e);
-//    		frame.steuerung.spiel_gestartet();
-//    	}
-//    });
+    btnNamenEingeben.addMouseListener(new MouseAdapter() {
+    	@Override
+    	public void mouseClicked(MouseEvent e) {
+    		bestenliste.Name_eingegeben(e);
+    		steuerung.ziffer_ausgewaehlt(null);
+    	}
+    });
     
     btnNamenEingeben.setFont(new Font("Tahoma", Font.PLAIN, 9));
     btnNamenEingeben.setBounds(232, 282, 118, 23);
