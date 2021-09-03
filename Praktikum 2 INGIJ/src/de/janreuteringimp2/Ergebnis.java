@@ -5,9 +5,9 @@ package de.janreuteringimp2;
  *
  */
 public class Ergebnis implements Comparable {
-	private String name;
-	private int spielzeitInSekunden;
-	private int reihenlaenge;
+	public String name;
+	public int spielzeitInSekunden;
+	public int reihenlaenge;
 	/*
 	 * Konstruktor
 	 * @param String name
@@ -27,27 +27,11 @@ public class Ergebnis implements Comparable {
 	@Override
 	public int compareTo(Object o) {
 		Ergebnis ergebnisToCompare = (Ergebnis)o;
-		if(ergebnisToCompare.getReihenlaenge() > this.getReihenlaenge()) {
+		if(ergebnisToCompare.reihenlaenge > this.reihenlaenge) {
 			return 1;
-		} else if(ergebnisToCompare.getReihenlaenge() == this.getReihenlaenge()) {
+		} else if(ergebnisToCompare.reihenlaenge == this.reihenlaenge) {
 			return 0;
 		}
 		return -1;
 	}
-	/**
-	 * Gibt den Namen als String dieses Ergebnis Objekt zurueck
-	 * @return name
-	 */
-	public String getName() { return name; }
-	/**
-	 * Gibt die Spielzeit in int vom Ergebnis Objekt zurueck
-	 * @return spielzeitInSekunde
-	 */
-	public int getSpielzeitInSekunde() { return spielzeitInSekunden; }
-	/**
-	 * Gibt die Reihenlaenge des Ergebnis Objektes als Integer zurueck
-	 * @return reihenlaenge
-	 */
-	public int	getReihenlaenge() { return reihenlaenge; }
-
 }

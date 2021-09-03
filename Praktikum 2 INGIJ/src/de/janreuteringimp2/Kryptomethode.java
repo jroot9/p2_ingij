@@ -13,7 +13,7 @@ public interface Kryptomethode
       @param schluesselwort: eine beliebige Zeichenkette */ 
   //public <Kryptomethode_Implementierung>(String schluesselwort);
 
-  /** Der Schluessel fuer das Ver- und Entschluesseln wird bereitgestellt.
+/** Der Schluessel fuer das Ver- und Entschluesseln wird bereitgestellt.
       @param wert Wert des Schluessels: eine beliebige Zeichenkette.*/
   public void Schluessel(String wert);
   

@@ -10,12 +10,11 @@ public interface Liste
       gesetzt werden soll.*/
    @SuppressWarnings("rawtypes")
   public void setze_an_Anfang(Comparable element);
-
   /** Ein Element wird an das Ende der Liste gesetzt.
       @param element das Element, das an das Ende der Liste 
       gesetzt werden soll.*/
    @SuppressWarnings("rawtypes")
-  public void setze_an_Ende(Comparable element);
+  public abstract void setze_an_Ende(Comparable element);
 
   /** Einfuegen eines neuen Elements nach dem Element, auf das der Iterator 
       zeigt.
@@ -27,7 +26,7 @@ public interface Liste
       @throw ungueltiger_Iterator_Ausnahme wird ausgeloest, 
       wenn das Element, auf das der Iterator zeigt, geloescht worden ist.*/    
   @SuppressWarnings("rawtypes")
-  public void fuege_ein_nach(Comparable element,Iterator iterator);
+  public abstract void fuege_ein_nach(Comparable element,Iterator iterator);
 
   /** Einfuegen eines neuen Elements vor dem Element, auf das der Iterator 
       zeigt.
@@ -39,13 +38,13 @@ public interface Liste
       @throw ungueltiger_Iterator_Ausnahme wird ausgeloest, 
       wenn das Element, auf das der Iterator zeigt, geloescht worden ist.*/    
   @SuppressWarnings("rawtypes")
-  public void fuege_ein_vor(Comparable element,Iterator iterator);
+  public abstract void fuege_ein_vor(Comparable element,Iterator iterator);
 
   /** Das erste Element wird geloescht.
       @return Das geloeschte Element.
       @throw leer_Ausnahme wird ausgeloest, wenn die Liste leer ist.*/
   @SuppressWarnings("rawtypes")
-  public Comparable loesche_erstes_Element();
+  public abstract Comparable loesche_erstes_Element();
 
   /** Das letzte Element wird geloescht.
       @return Das geloeschte Element.

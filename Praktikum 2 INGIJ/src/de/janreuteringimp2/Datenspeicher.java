@@ -17,8 +17,8 @@ import de.janreuteringimp2.VerketteteListe.Iterator;
  *
  */
 public class Datenspeicher {
-	private Caesar caesarVerschluesselung;
-	private Huffmann huffmannKomprimiermethode;
+	private Kryptomethode kryptomethode;
+	private Komprimierung komprimiermethode;
 	private int caesarSchluessel = 4;
 	private String dateiName = "/data/gameData.txt";
 	/**
@@ -27,28 +27,28 @@ public class Datenspeicher {
 	 */
 	public Datenspeicher(String dateiName) {
 		this.dateiName = dateiName;
-		this.caesarVerschluesselung = new Caesar();
-		this.huffmannKomprimiermethode = new Huffmann();
+		this.kryptomethode = new Caesar();
+		this.komprimiermethode = new Komprimierung();
 	}
 	/**
 	 * Leerer Constructor, initialisiert die Verschlüsselung, sowie die Komprimierung
 	 */
 	public Datenspeicher() {
-		this.caesarVerschluesselung = new Caesar();
-		this.huffmannKomprimiermethode = new Huffmann();
+		this.kryptomethode = new Caesar();
+		this.komprimiermethode = new Komprimierung();
 	}
 	/**
 	 * Methode welche eine existierende Liste von Ergebnissen laed
 	 * @return ergebnisliste
 	 */
-	public VerketteteListe lade() throws IOException {
-		VerketteteListe ergebnisliste = new VerketteteListe();
+	public Liste lade() throws IOException {
+		Liste ergebnisliste = new VerketteteListe();
 		Iterator iterator = (Iterator)ergebnisliste.erzeuge_Iterator();
 		iterator.anfang();
 		ArrayList <String> zeilenAusDatei = ladeAusDatei();
 		for(int i = 0; i < zeilenAusDatei.size(); i++) {
 			String aktuelleZeile = zeilenAusDatei.get(i);
-			aktuelleZeile = huffmannKomprimiermethode.expandieren(aktuelleZeile);
+			aktuelleZeile = komprimiermethode.expandieren(aktuelleZeile);
 			Ergebnis ergebnisAusAktuellerZeile =  convertiereStringAusDateiZumErgebnis(aktuelleZeile, caesarSchluessel);
 			ergebnisliste.setze_an_Ende(ergebnisAusAktuellerZeile);
 		}
@@ -58,16 +58,17 @@ public class Datenspeicher {
 	 * Methode welche eine uebergebene Ergebnisliste in abspeichert
 	 * @param ergebnisliste
 	 */
-	public void speichere(VerketteteListe ergebnisliste) throws IOException {
+	public void speichere(Liste ergebnisliste) throws IOException {
 		ArrayList<String> inhaltZumSchreibenInDatei = new ArrayList<String>();
 		Iterator iterator = (Iterator) ergebnisliste.erzeuge_Iterator();
 		iterator.anfang();
-		caesarVerschluesselung.Schluessel(caesarSchluessel+"");
+		kryptomethode.Schluessel(caesarSchluessel+"");
 		while(!iterator.nach_ende()) {
 			Ergebnis aktuellesErgebnis = (Ergebnis)iterator.element();
-			caesarVerschluesselung.verschluesseln(new StringBuffer().append(aktuellesErgebnis.getName()));
-			String zeileZumSchreibenInDatei = caesarVerschluesselung.getVerschluesselterText()+","+aktuellesErgebnis.getReihenlaenge()+","+aktuellesErgebnis.getSpielzeitInSekunde();
-			zeileZumSchreibenInDatei = huffmannKomprimiermethode.komprimieren(zeileZumSchreibenInDatei);
+			StringBuffer nameAusAktuellemErgebnis = new StringBuffer().append(aktuellesErgebnis.name);
+			kryptomethode.verschluesseln(nameAusAktuellemErgebnis);
+			String zeileZumSchreibenInDatei = nameAusAktuellemErgebnis.toString()+","+aktuellesErgebnis.reihenlaenge+","+aktuellesErgebnis.spielzeitInSekunden;
+			zeileZumSchreibenInDatei = komprimiermethode.komprimieren(zeileZumSchreibenInDatei);
 			inhaltZumSchreibenInDatei.add(zeileZumSchreibenInDatei);
 			iterator.weiter();
 		}
@@ -93,9 +94,10 @@ public class Datenspeicher {
 	private Ergebnis convertiereStringAusDateiZumErgebnis(String zeileAusDateiZumKonvertieren, int caesarSchluessel) {
 		String [] stringsAusDateiAufgeteilt = zeileAusDateiZumKonvertieren.split(",");
 		String nameEntschluesselt = stringsAusDateiAufgeteilt[0];
-		caesarVerschluesselung.Schluessel(caesarSchluessel+"");
-		caesarVerschluesselung.entschluesseln(new StringBuffer().append(nameEntschluesselt));
-		nameEntschluesselt = caesarVerschluesselung.getUnverschluesselterText();
+		StringBuffer nameEntschluesseltAlsStringBuffer = new StringBuffer().append(nameEntschluesselt);
+		kryptomethode.Schluessel(caesarSchluessel+"");
+		kryptomethode.entschluesseln(nameEntschluesseltAlsStringBuffer);
+		nameEntschluesselt = nameEntschluesseltAlsStringBuffer.toString();
 		return new Ergebnis(nameEntschluesselt, Integer.parseInt(stringsAusDateiAufgeteilt[1]),Integer.parseInt(stringsAusDateiAufgeteilt[2]));
 	}
 }

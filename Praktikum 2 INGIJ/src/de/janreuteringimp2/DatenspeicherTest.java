@@ -19,12 +19,12 @@ public class DatenspeicherTest {
 			BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter("TestFileZumLaden.txt"));
 			bufferedWriter.write("Lepps,5,5");
 			bufferedWriter.close();
-			VerketteteListe testListe = datenspeicherTestObjekt.lade();
+			Liste testListe = datenspeicherTestObjekt.lade();
 			Iterator iterator = (Iterator) testListe.erzeuge_Iterator();
 			iterator.anfang();
 			Ergebnis ergebnisZumVergleichen = (Ergebnis) iterator.element();
 			Ergebnis ergebnisManuellErstellt = new Ergebnis("Hallo",5,5);
-			assertEquals("Laden aus Datei funktioniert nicht.", ergebnisManuellErstellt.getName(), ergebnisZumVergleichen.getName());
+			assertEquals("Laden aus Datei funktioniert nicht.", ergebnisManuellErstellt.name, ergebnisZumVergleichen.name);
 		} catch (IOException e) {
 			e.getCause();
 		}

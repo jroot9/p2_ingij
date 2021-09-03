@@ -9,7 +9,7 @@ public class ErgebnislisteTest {
 		Ergebnisliste ergebnisliste = new Ergebnisliste();
 		ergebnisliste.speichere(new Ergebnis("TestSpeicher", 10, 10));
 		ergebnisliste.start();
-		assertEquals("Speichern von Elementen funktioniert nicht.",ergebnisliste.aktuelles_Ergebnis().getReihenlaenge(),10);
+		assertEquals("Speichern von Elementen funktioniert nicht.",ergebnisliste.aktuelles_Ergebnis().reihenlaenge,10);
 	}
 	@Test public void aktuelles_Ergebnis_Test() {
 		Ergebnisliste ergebnisliste = new Ergebnisliste();
@@ -17,7 +17,7 @@ public class ErgebnislisteTest {
 		ergebnisliste.speichere(ergebnisZumSpeichern);
 		ergebnisliste.start();
 		Ergebnis ergebnis = ergebnisliste.aktuelles_Ergebnis();
-		assertEquals("Aktuelles Ergebnis funktioniert nicht.",ergebnis.getReihenlaenge(),ergebnisZumSpeichern.getReihenlaenge());
+		assertEquals("Aktuelles Ergebnis funktioniert nicht.",ergebnis.reihenlaenge,ergebnisZumSpeichern.reihenlaenge);
 		
 		
 	}
@@ -26,7 +26,7 @@ public class ErgebnislisteTest {
 		ergebnisliste.speichere(new Ergebnis("TestSpeicher",20,20));
 		ergebnisliste.speichere(new Ergebnis("TestSpeicher",10,10));
 		ergebnisliste.start();
-		assertEquals("Setzen auf Erstes Element funktioniert nicht.",ergebnisliste.aktuelles_Ergebnis().getReihenlaenge(),20);
+		assertEquals("Setzen auf Erstes Element funktioniert nicht.",ergebnisliste.aktuelles_Ergebnis().reihenlaenge,20);
 	}
 	@Test public void weiterTest() {
 		Ergebnisliste ergebnisliste = new Ergebnisliste();
@@ -34,6 +34,6 @@ public class ErgebnislisteTest {
 		ergebnisliste.speichere(new Ergebnis("TestSpeicher",10,10));
 		ergebnisliste.start();
 		ergebnisliste.weiter();
-		assertEquals("Zeigen auf naechstes Element funktioniert nicht.",ergebnisliste.aktuelles_Ergebnis().getReihenlaenge(),10);
+		assertEquals("Zeigen auf naechstes Element funktioniert nicht.",ergebnisliste.aktuelles_Ergebnis().reihenlaenge,10);
 	}
 }

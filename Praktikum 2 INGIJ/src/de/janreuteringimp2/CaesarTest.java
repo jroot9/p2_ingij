@@ -16,9 +16,20 @@ public class CaesarTest {
 		caesarObjekt.entschluesseln(new StringBuffer().append("Tmxxa"));
 		assertEquals("Entschlüsselung funktioniert nicht", caesarObjekt.getUnverschluesselterText(),"Hallo");
 	}
+
 	@Test public void verschluesselnMitUmlautTest() {
 		caesarObjekt.Schluessel("25");
-		caesarObjekt.verschluesseln(new StringBuffer().append("üÄÖß"));
-		assertEquals("Umlaute werden nicht in das ASCII Format gebracht.",caesarObjekt.getVerschluesselterText(),"tdZdNdrr");
+		caesarObjekt.verschluesseln(new StringBuffer().append("üÄÖß-_:;Üäö)(//!\"§$%&/()=?`´²³4{[]}"));
+		assertEquals("Umlaute werden nicht in das ASCII Format gebracht.","tdZdNdrrTdzdnd",caesarObjekt.getVerschluesselterText());
+	}
+	@Test public void verschluesseln1Test() {
+		caesarObjekt.Schluessel("8888888888");
+		caesarObjekt.verschluesseln(new StringBuffer().append("Bmab"));
+		assertEquals("Verschlüsselung funktioniert nicht",caesarObjekt.getVerschluesselterText(),"Bmab");
+	}
+		@Test public void verschluesseln2Test() {
+		caesarObjekt.Schluessel("geheimerSchlüssel");
+		caesarObjekt.verschluesseln(new StringBuffer().append("Bmab"));
+		assertEquals("Verschlüsselung funktioniert nicht",caesarObjekt.getVerschluesselterText(),"Bmab");
 	}
 }

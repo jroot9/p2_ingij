@@ -9,12 +9,15 @@ import de.janreuteringimp2.Liste.Iterator;
  * @author jan.reuter
  *
  */
-public class Ergebnisliste implements Sortierung {
-	private VerketteteListe ergebnisliste = new VerketteteListe();
-	private Datenspeicher datenspeicher;
+public class Ergebnisliste  {
 	private Iterator iterator;
+	private Liste ergebnisliste;
+	private Sortierung sortierung;
+	private DatenspeicherTestImplementierung datenspeicher = new DatenspeicherTestImplementierung();
 	public Ergebnisliste() {
+		ergebnisliste = datenspeicher.lade();
 		iterator = ergebnisliste.erzeuge_Iterator();
+		sortierung = new Auswahlsortierung();
 	}
 	/**
 	 * Speichere ein neues Ergebnis in die Ergebnisliste
@@ -22,6 +25,7 @@ public class Ergebnisliste implements Sortierung {
 	 */
 	public void speichere(Ergebnis ergebnis) {
 		ergebnisliste.fuege_ein_vor(ergebnis, iterator);
+	
 	}
 	/**
 	 * Zeige auf das erste Element der Ergebnisliste
@@ -50,20 +54,4 @@ public class Ergebnisliste implements Sortierung {
 	public Ergebnis aktuelles_Ergebnis() {
 			return (Ergebnis)iterator.element();
 	}
-	@Override
-	public void sortiere(Liste liste) {
-		// TODO Auto-generated method stub
-		
-	}
-	@Override
-	public void setze_aufsteigend() {
-		// TODO Auto-generated method stub
-		
-	}
-	@Override
-	public void setze_absteigend() {
-		// TODO Auto-generated method stub
-		
-	}
-
 }
