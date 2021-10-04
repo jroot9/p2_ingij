@@ -3,8 +3,8 @@ package ziffernfolge;
 import static org.junit.Assert.assertEquals;
 import org.junit.jupiter.api.Test;
 
-class KomprimierungTest {
-	Komprimierung komprimierung =new Komprimierung();
+class KomprimierenTest {
+	Komprimieren komprimierung =new Komprimieren();
 	String soll;
 	String ist;
 
