@@ -37,7 +37,7 @@ public class BestenlisteZeile extends JPanel
 	 * @param ergebnis Ergebniswerte des Spieldurchgangs
 	 */
 	public void zeige_an(Ergebnis ergebnis) {
-		String ergebnisToString=" "+ergebnis.getName()+"    "+ergebnis.getReihenlaenge()+"er Reihe    "+ergebnis.getSpielzeitInSekunden()+"sec";
+		String ergebnisToString=" "+ergebnis.name+"    "+ergebnis.reihenlaenge+"er Reihe    "+ergebnis.spielzeitInSekunden+"sec";
 		jLabel.setText(ergebnisToString);
 		this.setVisible(true);
 	}

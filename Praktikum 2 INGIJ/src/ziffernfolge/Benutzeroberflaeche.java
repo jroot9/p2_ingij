@@ -88,14 +88,14 @@ public class Benutzeroberflaeche extends JFrame
     	@Override
     	public void mouseClicked(MouseEvent e) {
     		bestenliste.Name_eingegeben(e);
-    		steuerung.ziffer_ausgewaehlt(null);
+    		steuerung.spiel_gestartet();
     	}
     });
     
     btnNamenEingeben.setFont(new Font("Tahoma", Font.PLAIN, 9));
     btnNamenEingeben.setBounds(232, 282, 118, 23);
     btnNamenEingeben.setVisible(false);
-    btnNeuesSpiel.setVisible(false);
+    btnNeuesSpiel.setVisible(true);
     
     contentPane.add(btnNamenEingeben);
     

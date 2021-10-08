@@ -24,7 +24,8 @@ import javax.swing.border.LineBorder;
 public class Bestenliste  extends JPanel
 {
 	private static String name;
-	Ergebnis ergebnis = new Ergebnis("Lena",4,490);
+	//Testwerte für Ergebnisliste
+	Ergebnis ergebnis = new Ergebnis("Lena",64,8);
 	private int maxZeilen=10;
 	private int counterSpiele=0;
 	private static final int zeilenabstand=2;
@@ -62,22 +63,14 @@ public class Bestenliste  extends JPanel
 		bof.btnNamenEingeben.setEnabled(false);
 		
 		//Zum Testen der Bestenliste
-		neues_Ergebnis(15, 26);
-		zeige_Liste_an();
-		
-		
-		
+				neues_Ergebnis(15, 26);
+				zeige_Liste_an();
+				
+
 		counterSpiele++;
-//		bof.btnNeuesSpiel.setVisible(true);
-//		bof.btnNeuesSpiel.setEnabled(true);
+		bof.btnNeuesSpiel.setVisible(true);
+		bof.btnNeuesSpiel.setEnabled(true);
 		
-		//Komprimierungstest
-//		System.out.println("Test der Komprimierung");
-//		Komprimierung komprimierung =new Komprimierung();
-//		String s = komprimierung.komprimieren("aaaaabb");
-//		System.out.println(s);
-//	    s=komprimierung.expandieren("a7b");
-//		System.out.println(s);
 		
 	}
 	
@@ -104,9 +97,9 @@ public class Bestenliste  extends JPanel
 	public void neues_Ergebnis(int folgenlaenge, int spielzeit){
 		
 	//name, folgenlänge, Spielzeit abspeichern
-	ergebnis.setName(name);
-	ergebnis.setReihenlaenge(folgenlaenge);
-	ergebnis.setSpielzeitInSekunden(spielzeit);
+//	ergebnis.setName(name);
+//	ergebnis.setReihenlaenge(folgenlaenge);
+//	ergebnis.setSpielzeitInSekunden(spielzeit);
 	
 	bestenlisteZeile[counterSpiele]=new BestenlisteZeile(this);
 	int ypos=ueberschrift+zeilenabstand+counterSpiele*(zeilenabstand+BestenlisteZeile.groesse);
@@ -123,7 +116,8 @@ public class Bestenliste  extends JPanel
 		
 		bof.btnNamenEingeben.setVisible(true);
 		bof.btnNamenEingeben.setEnabled(true);
-		bof.txtNameInput.setEditable(true);
+		//bof.txtNameInput.setEditable(true);
+		bof.txtNameInput.setText("Lena");
 		bof.txtNameInput.setVisible(true);
 	}
 	
