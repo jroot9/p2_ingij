@@ -67,7 +67,7 @@ public class Datenspeicher {
 			Ergebnis aktuellesErgebnis = (Ergebnis)iterator.element();
 			StringBuffer nameAusAktuellemErgebnis = new StringBuffer().append(aktuellesErgebnis.name);
 			kryptomethode.verschluesseln(nameAusAktuellemErgebnis);
-			String zeileZumSchreibenInDatei = nameAusAktuellemErgebnis.toString()+","+aktuellesErgebnis.reihenlaenge+","+aktuellesErgebnis.spielzeitInSekunden;
+			String zeileZumSchreibenInDatei = nameAusAktuellemErgebnis.toString()+","+aktuellesErgebnis.reihenlaenge+","+aktuellesErgebnis.spielzeitInSekunden+"\n";
 			zeileZumSchreibenInDatei = komprimiermethode.komprimieren(zeileZumSchreibenInDatei);
 			inhaltZumSchreibenInDatei.add(zeileZumSchreibenInDatei);
 			iterator.weiter();
