@@ -24,8 +24,7 @@ import javax.swing.border.LineBorder;
 public class Bestenliste  extends JPanel
 {
 	private static String name;
-	//Testwerte für Ergebnisliste
-	Ergebnis ergebnis = new Ergebnis("Lena",64,8);
+	Ergebnis ergebnis = new Ergebnis("NULL",0,0);
 	private int maxZeilen=10;
 	private int counterSpiele=0;
 	private static final int zeilenabstand=2;
@@ -33,6 +32,7 @@ public class Bestenliste  extends JPanel
 	public int hoehe=ueberschrift+zeilenabstand*maxZeilen+BestenlisteZeile.groesse*maxZeilen+1;
 	public static final int breite=170;
 	private Benutzeroberflaeche bof;
+	private Ergebnisliste ergebnisliste = new Ergebnisliste();
 	
 	
 	
@@ -97,9 +97,11 @@ public class Bestenliste  extends JPanel
 	public void neues_Ergebnis(int folgenlaenge, int spielzeit){
 		
 	//name, folgenlänge, Spielzeit abspeichern
-//	ergebnis.setName(name);
-//	ergebnis.setReihenlaenge(folgenlaenge);
-//	ergebnis.setSpielzeitInSekunden(spielzeit);
+	ergebnis.name = name;
+	ergebnis.reihenlaenge = folgenlaenge;
+	ergebnis.spielzeitInSekunden = spielzeit;
+	 
+	ergebnisliste.fuege_ein_nach(ergebnis);
 	
 	bestenlisteZeile[counterSpiele]=new BestenlisteZeile(this);
 	int ypos=ueberschrift+zeilenabstand+counterSpiele*(zeilenabstand+BestenlisteZeile.groesse);
@@ -116,8 +118,7 @@ public class Bestenliste  extends JPanel
 		
 		bof.btnNamenEingeben.setVisible(true);
 		bof.btnNamenEingeben.setEnabled(true);
-		//bof.txtNameInput.setEditable(true);
-		bof.txtNameInput.setText("Lena");
+		bof.txtNameInput.setEditable(true);
 		bof.txtNameInput.setVisible(true);
 	}
 	
