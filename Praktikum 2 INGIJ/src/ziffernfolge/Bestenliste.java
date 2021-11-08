@@ -25,7 +25,7 @@ public class Bestenliste  extends JPanel
 {
 	private static String name;
 	Ergebnis ergebnis = new Ergebnis("NULL",0,0);
-	private int maxZeilen=10;
+	private int maxZeilen=2;
 	private int counterSpiele=0;
 	private static final int zeilenabstand=2;
 	private static final int ueberschrift = 20;
@@ -36,13 +36,13 @@ public class Bestenliste  extends JPanel
 	
 	
 	
-	private BestenlisteZeile[] bestenlisteZeile=new BestenlisteZeile[maxZeilen];
+	private BestenlisteZeile[] bestenlisteZeile=new BestenlisteZeile[maxZeilen+1];
 	
 	public Bestenliste(Benutzeroberflaeche bof) {
 		this.bof = bof;
 	    this.setSize(breite, hoehe); 
 	    this.setLayout(null);
-	    this.setVisible(false);
+	    this.sichtbar(false);
  
 	}
 	
@@ -62,11 +62,7 @@ public class Bestenliste  extends JPanel
 		bof.btnNamenEingeben.setVisible(false);
 		bof.btnNamenEingeben.setEnabled(false);
 		
-		//Zum Testen der Bestenliste
-				neues_Ergebnis(15, 26);
-				zeige_Liste_an();
-				
-
+		
 		counterSpiele++;
 		bof.btnNeuesSpiel.setVisible(true);
 		bof.btnNeuesSpiel.setEnabled(true);
@@ -81,7 +77,7 @@ public class Bestenliste  extends JPanel
 	 */
 	public void neues_Spiel(MouseEvent mouseListener){
 		
-		this.setVisible(false);
+		this.sichtbar(false);
 		bof.btnNeuesSpiel.setVisible(false);
 		bof.btnNeuesSpiel.setEnabled(false);
 		this.aktiviere_Namenseingabe();	
@@ -102,11 +98,14 @@ public class Bestenliste  extends JPanel
 	ergebnis.spielzeitInSekunden = spielzeit;
 	 
 	ergebnisliste.fuege_ein_nach(ergebnis);
+	if(counterSpiele<=maxZeilen) {
+		bestenlisteZeile[counterSpiele]=new BestenlisteZeile(this);
+		int ypos=ueberschrift+zeilenabstand+counterSpiele*(zeilenabstand+BestenlisteZeile.groesse);
+		bestenlisteZeile[counterSpiele].setLocation(0,ypos);
+		this.add(bestenlisteZeile[counterSpiele]);
+		
+	}
 	
-	bestenlisteZeile[counterSpiele]=new BestenlisteZeile(this);
-	int ypos=ueberschrift+zeilenabstand+counterSpiele*(zeilenabstand+BestenlisteZeile.groesse);
-	bestenlisteZeile[counterSpiele].setLocation(0,ypos);
-	this.add(bestenlisteZeile[counterSpiele]);
 	
 	}
 	
@@ -127,8 +126,10 @@ public class Bestenliste  extends JPanel
 	 * 
 	 */
 	public void zeige_Liste_an(){
+		if(counterSpiele<=maxZeilen) {
 		bestenlisteZeile[counterSpiele].zeige_an(ergebnis);
-		this.setVisible(true);
+		}else bestenlisteZeile[maxZeilen].zeige_an(ergebnis);
+		this.sichtbar(true);
 		
 	}
 	

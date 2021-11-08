@@ -55,7 +55,7 @@ public class Benutzeroberflaeche extends JFrame
   {
     setTitle("Ziffernfolge");
     setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-    setBounds(100,100,375,
+    setBounds(100,100,442,
               359);
     contentPane = new JPanel();
     contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
@@ -87,8 +87,20 @@ public class Benutzeroberflaeche extends JFrame
     btnNamenEingeben.addMouseListener(new MouseAdapter() {
     	@Override
     	public void mouseClicked(MouseEvent e) {
+    		String name;
+    		boolean akzeptiert;
+    		 
+    		//Textinput überprüfen
+    		name = txtNameInput.getText();
+    		        if(name == null || name.isEmpty() || name.contains(" ")){
+    		            throw new RuntimeException("Name kann nicht leer sein oder aus Leerzeichen bestehen");
+
+    		        }
+    		        else {
     		bestenliste.Name_eingegeben(e);
     		steuerung.spiel_gestartet();
+    		}
+    		
     	}
     });
     

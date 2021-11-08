@@ -23,37 +23,6 @@ public class Ergebnisliste
 	aktueller_knoten=neuer_knoten;
 	}
 
-	public Ergebnis erstes_Element() throws leer_Ausnahme
-	{ 
-	if(kopf.nachfolger==ende) throw new leer_Ausnahme();
-	aktueller_knoten=kopf.nachfolger;
-	return aktueller_knoten.element;
-	}
-	
-	public Ergebnis naechstes_Element() throws leer_Ausnahme,ende_Ausnahme 
-	{ 
-	if(kopf.nachfolger==ende) throw new leer_Ausnahme();
-	if(aktueller_knoten.nachfolger==ende) throw new ende_Ausnahme();
-	aktueller_knoten=aktueller_knoten.nachfolger;
-	return aktueller_knoten.element;
-	}
-
-
-	public boolean ende_erreicht()
-	{ 
-	return aktueller_knoten.nachfolger==ende;
-	}
-
-	public class leer_Ausnahme extends RuntimeException
-	{ 
-	private static final long serialVersionUID = 1L;
-	};    
-
-	public class ende_Ausnahme extends RuntimeException
-	{ 
-	private static final long serialVersionUID = 1L;
-	};
-
 	private class Knoten
 	{ 
 	private Ergebnis element;
